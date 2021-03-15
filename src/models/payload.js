@@ -6,5 +6,6 @@ module.exports = {
     txid: '',
     amount: '',
     uniquePayment: false,
-    url: ''
+    url: '',
+    country_code: 'BR'
 };
