@@ -4,7 +4,7 @@
   "description": "This library that aims to build the payload of pix payment, with this payload the developer can generate the qr code payable or pay informed the same in the bank's app.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node src/test.js"
   },
   "repository": {
     "type": "git",

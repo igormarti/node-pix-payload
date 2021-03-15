@@ -45,7 +45,7 @@ exports.setMerchantName = (merchantName) => {
 }
 
 exports.setMerchantCity = (merchantCity) => {
-    payload_params.merchantName = merchantCity;
+    payload_params.merchantCity = merchantCity;
 }
 
 exports.setTxid = (txid) => {
@@ -108,11 +108,11 @@ getUniquePayment = () => {
 }
 
 /**
- * this function is responsible for generate pix the full pix payload code
+ * this function is responsible for generate the full pix payload code
  */
 exports.getPayload = () => {
     let payload = getValueFormated(ID_PAYLOAD_FORMAT_INDICATOR,'01')
-    +payload_params.uniquePayment
+    +getUniquePayment()
     +getMerchantAccountInformation()
     +getValueFormated(ID_MERCHANT_CATEGORY_CODE,'0000') 
     +getValueFormated(ID_TRANSACTION_CURRENCY,'986') 
@@ -129,5 +129,5 @@ exports.getPayload = () => {
  * this function is responsible for calcule crc16 and generate validation hash of the pix code.
  */
 calculeCrc16 = (payload) => {
-    return crc.crcccitt(Buffer.from(payload,'utf8'),{}).toString('hex');
+    return crc.crcccitt(Buffer.from(payload+ID_CRC16+'04','utf8'),{}).toString('hex');
 }
