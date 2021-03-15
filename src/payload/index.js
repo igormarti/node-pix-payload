@@ -61,16 +61,6 @@ exports.setCountryCode = (country_code) => {
 }
 
 /**
-* this function is responsible for the complete return value of the payload object
-* @param id
-* @param value
-* @return id+size+val
-*/
-getValueFormated = (id,val) => {
-    return id+val.length+val;
-}
-
-/**
  * this function is responsible for return account information complete
  */
 getMerchantAccountInformation = () => {
@@ -108,6 +98,16 @@ getUniquePayment = () => {
 }
 
 /**
+* this function is responsible for the complete return value of the payload object
+* @param id
+* @param value
+* @return id+size+val
+*/
+getValueFormated = (id,val) => {
+    return id+val.length.toString().padStart(2,'0')+val;
+}
+
+/**
  * this function is responsible for generate the full pix payload code
  */
 exports.getPayload = () => {
@@ -129,5 +129,5 @@ exports.getPayload = () => {
  * this function is responsible for calcule crc16 and generate validation hash of the pix code.
  */
 calculeCrc16 = (payload) => {
-    return crc.crcccitt(Buffer.from(payload+ID_CRC16+'04','utf8'),{}).toString('hex');
+    return crc.crcccitt(Buffer.from(payload+ID_CRC16+'04','utf8'),{}).toString('hex').toUpperCase();
 }
