@@ -2,7 +2,7 @@
   "name": "node-pix-payload",
   "version": "1.0.0",
   "description": "This library that aims to build the payload of pix payment, with this payload the developer can generate the qr code payable or pay informed the same in the bank's app.",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "node src/test.js"
   },
