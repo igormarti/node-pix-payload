@@ -1,6 +1,6 @@
 const {setPixKey,setDescription,setMerchantName,
       setMerchantCity,setAmount,setTxid,setUrl,
-      setUniquePayment,setCountryCode,getPayload} 
+      setUniquePayment,setCountryCode,getData} 
   = require('./payload')
 
 module.exports = {
@@ -40,5 +40,5 @@ module.exports = {
     setCountryCode(country_code);
     return this
   },
-  getPayload: () => getPayload()
+  getData: async () => await getData()
 }

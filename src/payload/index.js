@@ -1,4 +1,5 @@
 const crc = require('node-crc');
+var QRCode = require('qrcode');
 
 //payload params
 const payload_params = require('../models/payload')
@@ -110,7 +111,7 @@ getValueFormated = (id,val) => {
 /**
  * this function is responsible for generate the full pix payload code
  */
-exports.getPayload = () => {
+exports.getData = async () => {
     let payload = getValueFormated(ID_PAYLOAD_FORMAT_INDICATOR,'01')
     +getUniquePayment()
     +getMerchantAccountInformation()
@@ -122,7 +123,22 @@ exports.getPayload = () => {
     +getValueFormated(ID_MERCHANT_CITY,payload_params.merchantCity)
     +getAdditionalDataFieldTemplate();
 
-    return payload+calculeCrc16(payload);
+    const payload_text = payload+calculeCrc16(payload);
+
+    const payload_qrcode = await generateQrCode(payload);
+
+    return {
+        text_payload:payload_text,
+        qrcode_payload:payload_qrcode
+    }
+}
+
+/**
+ * generate payload qrcode
+ */
+generateQrCode = async (text) => {
+    const url = await QRCode.toDataURL(text);
+    return url;
 }
  
 /**
