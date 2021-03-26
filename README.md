@@ -1,5 +1,5 @@
 # node-pix-payload
-This package that aims to build the payload of pix payment, with this payload the developer can generate the qr code payable or pay informed the same in the bank's app.
+This package that aims to build the payment pix payload, with this payload the developer can generate the qr code to pay or pay informing the same in the bank's app
 
 - [Installation](#installation)
 - [Example](#example)
