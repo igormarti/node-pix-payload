@@ -118,18 +118,19 @@ exports.getData = async () => {
     +getValueFormated(ID_MERCHANT_CATEGORY_CODE,'0000') 
     +getValueFormated(ID_TRANSACTION_CURRENCY,'986') 
     +getValueFormated(ID_TRANSACTION_AMOUNT,payload_params.amount) 
-    +getValueFormated(ID_COUNTRY_CODE,'BR') 
+    +getValueFormated(ID_COUNTRY_CODE,payload_params.country_code) 
     +getValueFormated(ID_MERCHANT_NAME,payload_params.merchantName) 
     +getValueFormated(ID_MERCHANT_CITY,payload_params.merchantCity)
     +getAdditionalDataFieldTemplate();
-
+    
     const payload_text = payload+calculeCrc16(payload);
 
     const payload_qrcode = await generateQrCode(payload);
 
     return {
         text_payload:payload_text,
-        qrcode_payload:payload_qrcode
+        qrcode_payload:payload_qrcode,
+        outPut: (path,format='png') => outPutImage(path,payload_text,format)
     }
 }
 
@@ -139,6 +140,20 @@ exports.getData = async () => {
 generateQrCode = async (text) => {
     const url = await QRCode.toDataURL(text);
     return url;
+}
+
+/**
+ * this function is responsible for generate image qrcode saving in a path,
+ * possible output formats are: png, svg and utf8. format default is png.
+ * @param path
+ * @param text
+ * @param format
+ * @return image
+ */
+outPutImage = (path,text,format) => {
+    QRCode.toFile(path,text,{type:format},function(err){
+        if(err) throw err;
+    })
 }
  
 /**
