@@ -3,7 +3,7 @@ This package that aims to build the payment pix payload, with this payload the d
 
 - [Installation](#installation)
 - [Example](#example)
-- [Saving Qrcode](#saving qrcode)
+- [Saving](#saving)
 
 ## Installation
 Inside your project folder do:
@@ -45,7 +45,7 @@ payload.getData().then((data) => {
     console.log(data);
 }).catch(err => console.log(err))  
 ```
-## Saving Qrcode
+## Saving
 Possible output formats are: png, svg and utf8. format default is png.
 
 ```javascript
