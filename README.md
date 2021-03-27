@@ -71,9 +71,6 @@ Output svg
     .setAmount('100.00')
     .setTxid('ij123');
 
-    payload_static.getData().then((data) =>{
-        console.log(data)
-    })
-    .catch(err => console.log(err));  
+    const = await payload_static.getData();
     data.outPut('files/qrcode_static.svg','svg');
 ```
