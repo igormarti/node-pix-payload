@@ -123,7 +123,7 @@ exports.getData = async () => {
     +getValueFormated(ID_MERCHANT_CITY,payload_params.merchantCity)
     +getAdditionalDataFieldTemplate();
     
-    const payload_text = payload+calculeCrc16(payload);
+    const payload_text = payload+ID_CRC16+'04'+calculeCrc16(payload);
 
     const payload_qrcode = await generateQrCode(payload);
 
