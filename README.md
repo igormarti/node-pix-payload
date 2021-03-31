@@ -17,7 +17,7 @@ Example static
 ```javascript
 const Payload = require('node-pix-payload');
 
-const payload_static = Payload.setPixKey('a3b64d9b-7jd8-9kf8-085j8sj4f58')
+const payload_static = Payload.setPixKey('1c995784-b8a4-482a-952e-4b8cd6928216')
 .setDescription('payment xyz')
 .setMerchantName('IJ Solutions')
 .setMerchantCity('MACEIO')
@@ -64,7 +64,7 @@ Possible output formats are: png and svg. format default is png.
 Output svg
 
 ```javascript
-   const payload_static = Payload.setPixKey('a3b64d9b-7jd8-9kf8-085j8sj4f58')
+   const payload_static = Payload.setPixKey('1c995784-b8a4-482a-952e-4b8cd6928216')
     .setDescription('payment xyz')
     .setMerchantName('IJ Solutions')
     .setMerchantCity('MACEIO')
