@@ -1,6 +1,6 @@
-import {Payload} from '../interfaces/index.inteface';
+import { Payload } from '../interfaces/index.inteface';
 
-const payload:Payload = {
+const payload: Payload = {
   pixKey: '',
   description: '',
   merchantName: '',
