@@ -1,4 +1,3 @@
-
 // @ts-nocheck
 import crc from 'node-crc';
 

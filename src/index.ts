@@ -1,54 +1,42 @@
-import Payload from './class/Payload.class';
+import { setAmount,setCountryCode,setDescription,setMerchantCity,
+setMerchantName, setPixKey,setTxid,setUniquePayment,setUrl,getData } from './class/Payload.class';
 
-class Main {
-  setPixKey(key: string) {
-    Payload.setPixKey(key);
+export = {
+  setAmount (amount: string | number) {
+    setAmount(amount);
     return this;
-  }
-
-  setDescription(description: string) {
-    Payload.setDescription(description);
+  },
+  setCountryCode(countryCode:string) {
+    setCountryCode(countryCode);
     return this;
-  }
-
-  setMerchantName(name: string) {
-    Payload.setMerchantName(name);
+  },
+  setDescription(description:string) {
+    setDescription(description);
     return this;
-  }
-
-  setMerchantCity(city: string) {
-    Payload.setMerchantCity(city);
+  },
+  setMerchantCity(city:string) {
+    setMerchantCity(city);
     return this;
-  }
-
-  setAmount(amount: string | number) {
-    Payload.setAmount(amount);
+  },
+  setMerchantName(name:string) {
+    setMerchantName(name);
     return this;
-  }
-
-  setTxid(txid: string) {
-    Payload.setTxid(txid);
+  },
+  setPixKey(key:string) {
+    setPixKey(key);
     return this;
-  }
-
-  setUrl(url: string) {
-    Payload.setUrl(url);
+  },
+  setTxid(txid:string) {
+    setTxid(txid);
     return this;
-  }
-
-  setUniquePayment(uniquePayment: boolean) {
-    Payload.setUniquePayment(uniquePayment);
+  },
+  setUniquePayment(uniquePayment:boolean) {
+    setUniquePayment(uniquePayment);
     return this;
-  }
-
-  setCountryCode(countryCode: string) {
-    Payload.setCountryCode(countryCode);
+  },
+  setUrl(url:string) {
+    setUrl(url);
     return this;
-  }
-
-  async getData() {
-    return await Payload.getData();
-  }
-}
-
-export default new Main();
+  },
+  getData: async () => getData()
+};
